@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block page %}
+
+<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="blog">
+    <div class="my-auto">
+        <h2 class="mb-5">last posts</h2>
+        {% for entry in entries.items %}
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+                <h3 class="mb-0"><a href="{{ url_for('blog.post', _id=entry.id) }}">{{ entry.title }}</a></h3>
+                <div class="subheading mb-3">subheading</div>
+                <p>{{ entry.to_html | safe}}</p>
+            </div>
+            <div class="resume-date text-md-right">
+                <span class="text-primary">{{ entry.created_timestamp|date_format }}</span>
+            </div>
+        </div>
+        {% endfor %}
+        {% if entries.has_prev %}
+        <a href="{{ url_for('.index', page=entries.prev_num) }}">&lt;&lt; Newer posts</a>
+        {% else %}&lt;&lt; Newer posts{% endif %} |
+        {% if entries.has_next %}
+        <a href="{{ url_for('.index', page=entries.next_num) }}">Older posts &gt;&gt;</a>
+        {%else%}
+        Older posts &gt;&gt;
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

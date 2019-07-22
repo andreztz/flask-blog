@@ -1,0 +1,4 @@
+flask-shell-ipython
+Faker
+black
+-r prod.txt

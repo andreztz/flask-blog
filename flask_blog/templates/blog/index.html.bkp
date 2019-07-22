@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block page %}
+
+<div class="lead mb-3 text-mono">
+  {% for entry in entries %}
+  <h1 class="">{{ entry.title }}</h1>
+  <p class="">
+    {{ entry.body | safe }}
+  </p>
+
+  {% endfor %}
+</div>
+{% endblock %}

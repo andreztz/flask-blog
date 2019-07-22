@@ -1,0 +1,14 @@
+Flask
+Flask-Admin
+Flask-CKEditor
+Flask-SQLAlchemy
+itsdangerous
+Jinja2
+MarkupSafe
+SQLAlchemy
+Werkzeug
+WTForms
+flask-login
+Flask-Bootstrap
+python-dotenv
+mistune
